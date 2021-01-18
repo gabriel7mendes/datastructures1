@@ -2,6 +2,7 @@ package br.com.datastructures.queue;
 
 public class Node<T> {
 
+	private long steps;
 	private T key;
 	private Node<T> next;
 	private Node<T> prev;
