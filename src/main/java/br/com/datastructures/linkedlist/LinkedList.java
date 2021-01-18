@@ -143,7 +143,9 @@ public class LinkedList<T> {
 			return;
 		}
 		
-		steps += node.getNext().steps();
+		node = node.getNext(); 
+		steps++;
+		steps += node.steps();
 			
 		Node<T> next = node.getNext().getNext();
 		steps++;
@@ -181,22 +183,14 @@ public class LinkedList<T> {
 	}
 	
 	public long steps() {
-		long totalSteps = 0;
+		long totalSteps = steps;
 		Node<T> node = head;
 		
-		if(node == null) {
-			return steps;
-		} else {
+		while(node != null) {
 			totalSteps += node.steps();
-			
 			node = node.getNext();
-			while(node != null) {
-				totalSteps += node.steps();;
-				node = node.getNext();
-			}
+	    }
 			
-		}
-		
-		return steps + totalSteps;
+		return totalSteps;
 	}
 }
