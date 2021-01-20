@@ -147,7 +147,7 @@ public class LinkedList<T> {
 		steps++;
 		steps += node.steps();
 			
-		Node<T> next = node.getNext().getNext();
+		Node<T> next = node.getNext();
 		steps++;
 		
 		node.setNext(next);
