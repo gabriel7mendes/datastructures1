@@ -22,13 +22,8 @@ public class LinkedList<T> {
 		steps++;
 	}
 	
-	public void insertPosition(int position, T data) {
-		if(head == null) {
-			steps++;
-			return;
-		}
-			
-		if(position == 0) {
+	public void insertPosition(int position, T data) {	
+		if(head == null || position == 0) {
 			insertBegin(data);
 			steps+=2;
 			return;
@@ -143,16 +138,12 @@ public class LinkedList<T> {
 			return;
 		}
 		
-		node = node.getNext(); 
+		Node<T> del = node.getNext(); 
+		steps += del.steps();
 		steps++;
-		steps += node.steps();
-			
-		Node<T> next = node.getNext();
+		node.setNext(del.getNext());
 		steps++;
-		
-		node.setNext(next);
-		steps++;
-		
+
 		size--;
 		steps++;
 	}
