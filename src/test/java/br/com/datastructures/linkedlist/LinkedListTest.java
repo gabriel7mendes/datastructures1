@@ -16,14 +16,20 @@ public class LinkedListTest {
 		
 		lista.printList();
 		
-		lista.deleteNode(1); 
+		lista.deleteAt(1); 
 		lista.printList();
 		//lista.insertPosition(1, 7);
 		
-		lista.deleteNode(0); 
+		lista.deleteAt(0); 
 		lista.printList();
 		
-		lista.deleteNode(2); 
+		lista.deleteAt(2); 
+		lista.printList();
+		
+		lista.insertEnd("Teste");
+		lista.printList();
+			
+		lista.delete("Leonardo");
 		lista.printList();
 	}
 

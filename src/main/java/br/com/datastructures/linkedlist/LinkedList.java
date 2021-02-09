@@ -111,8 +111,34 @@ public class LinkedList<T> {
 		steps++;
 		return node.getKey();
 	}
+	
+	public void delete(T del) {
+		Node<T> node = head;	
+		steps++;
+		
+		Node<T> prev = null;
+		steps++;
+		
+		if(head == del) {
+			head = head.getNext();
+			steps++;
+		} else {
+			while(node != null) {
+				if(node.getKey().equals(del)) {
+					prev.setNext(node.getNext());
+					steps++;
+				}
+				
+				prev = node;
+				steps++;
+				
+				node = node.getNext();
+				steps++;
+			}
+		}
+	}
  	
-	public void deleteNode(int position) {
+	public void deleteAt(int position) {
 		if(head == null) {
 			steps++;
 			return;
